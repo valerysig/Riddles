@@ -1,9 +1,33 @@
 class Solution:
-    def lengthOfLongestSubstring(self, s):
+    def multiply(self, num1, num2):
         """
-        :type s: str
-        :rtype: int
+        :type num1: str
+        :type num2: str
+        :rtype: str
         """
+        finalNumber = 0
+        currentDigitCount = 0
+        for i in range(len(num2)-1, -1, -1):
+            finalNumber += self.__multiplyNumberDigit(num1, num2[i]) * pow(10, currentDigitCount)
+
+            currentDigitCount += 1
+
+        return str(finalNumber)
+
+
+    def __multiplyNumberDigit(self, num, digit):
+        carry = 0
+        finalNumber = 0
+        currentDigitCount = 0
+        for i in range(len(num)-1, -1, -1):
+            currNum = (int(num[i]) * int(digit)) + carry
+            finalNumber += (currNum % 10) * pow(10, currentDigitCount)
+            carry = currNum // 10
+
+            currentDigitCount += 1
+        finalNumber += carry * pow(10, currentDigitCount)
+
+        return finalNumber
 
 
     def addTwoNumbers(self, l1, l2):

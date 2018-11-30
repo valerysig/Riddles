@@ -7,6 +7,20 @@ class TestSolution(TestCase):
 
     solution = Solution()
 
+    def testMultiply(self):
+        num1 = self.solution.multiply("2", "3")
+        self.assertEqual("6", num1)
+
+        num2 = self.solution.multiply("123", "456")
+        self.assertEqual("56088", num2)
+
+        num3 = self.solution.multiply("1", "000")
+        self.assertEqual("0", num3)
+
+        num4 = self.solution.multiply("4", "123456789")
+        self.assertEqual("493827156", num4)
+
+
     def testAddTwoNumbers(self):
         l1 = self.__buildList(2, 4, 9)
         l2 = self.__buildList(5, 6, 4, 9, 9)
