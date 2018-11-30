@@ -7,6 +7,19 @@ class TestSolution(TestCase):
 
     solution = Solution()
 
+    def testLengthOfLongestSubstring(self):
+        len1 = self.solution.lengthOfLongestSubstring("abcabcbb")
+        self.assertEqual(3, len1)
+
+        len2 = self.solution.lengthOfLongestSubstring("bbbbb")
+        self.assertEqual(2, len2)
+
+        len3 = self.solution.lengthOfLongestSubstring("pwwkew")
+        self.assertEqual(3, len3)
+
+        len4 = self.solution.lengthOfLongestSubstring("abcabzw")
+        self.assertEqual(5, len4)
+
     def testMultiply(self):
         num1 = self.solution.multiply("2", "3")
         self.assertEqual("6", num1)

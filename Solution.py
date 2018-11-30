@@ -1,4 +1,10 @@
 class Solution:
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
     def multiply(self, num1, num2):
         """
         :type num1: str
