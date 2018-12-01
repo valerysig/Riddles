@@ -4,6 +4,23 @@ class Solution:
         :type s: str
         :rtype: int
         """
+        lettersSoFar = set()
+        maxCounter = 0
+        currentCounter = 0
+        startIndex = 0
+        for i in range(len(s)):
+            while lettersSoFar.__contains__(s[i]):
+                lettersSoFar.remove(s[startIndex])
+                startIndex += 1
+                currentCounter -= 1
+
+            currentCounter += 1
+            lettersSoFar.add(s[i])
+            if currentCounter > maxCounter:
+                maxCounter = currentCounter
+
+        return maxCounter
+
 
     def multiply(self, num1, num2):
         """

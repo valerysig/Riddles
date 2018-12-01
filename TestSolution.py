@@ -12,7 +12,7 @@ class TestSolution(TestCase):
         self.assertEqual(3, len1)
 
         len2 = self.solution.lengthOfLongestSubstring("bbbbb")
-        self.assertEqual(2, len2)
+        self.assertEqual(1, len2)
 
         len3 = self.solution.lengthOfLongestSubstring("pwwkew")
         self.assertEqual(3, len3)
