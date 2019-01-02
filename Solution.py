@@ -1,4 +1,40 @@
+import re
+
 class Solution:
+    def myAtoi(self, str):
+        """
+        :type str: str
+        :rtype: int
+        """
+        i = 0
+        while (i < len(str)) and (str[i] == ' '):
+            i += 1
+
+        if (i >= len(str)) or (re.match(r"[-+0-9]", str[i]) is None):
+            return 0
+
+        multiplier = 1
+        if str[i] == '-':
+            multiplier = -1
+            i += 1
+        elif str[i] == '+':
+            i += 1
+
+        finalNum = 0
+
+        while (i < len(str)) and not(re.match(r"[0-9]", str[i]) is None):
+            finalNum = 10*finalNum + int(str[i])
+            i += 1
+
+        finalNum = finalNum * multiplier
+
+        if finalNum <= pow(-2,31):
+            return pow(-2,31)
+        if finalNum >= pow(2,31)-1:
+            return pow(2,31)-1
+        return finalNum
+
+
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str

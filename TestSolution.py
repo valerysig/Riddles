@@ -7,6 +7,25 @@ class TestSolution(TestCase):
 
     solution = Solution()
 
+    def testMyAtio(self):
+        num = self.solution.myAtoi('')
+        self.assertEqual(0, num)
+
+        num = self.solution.myAtoi('42')
+        self.assertEqual(42, num)
+
+        num = self.solution.myAtoi('    -42')
+        self.assertEqual(-42, num)
+
+        num = self.solution.myAtoi('4193 with words')
+        self.assertEqual(4193, num)
+
+        num = self.solution.myAtoi('words and 987')
+        self.assertEqual(0, num)
+
+        num = self.solution.myAtoi('-91283472332')
+        self.assertEqual(-2147483648, num)
+
     def testLengthOfLongestSubstring(self):
         len1 = self.solution.lengthOfLongestSubstring("abcabcbb")
         self.assertEqual(3, len1)
